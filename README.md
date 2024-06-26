@@ -103,9 +103,20 @@ ls -l
 ```
 ![Screenshot from 2024-06-26 17-28-11](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/54298f6c-8561-4a10-9419-c8bceb6ef4e6)
 
-## 
-    12. Log out and log in by another user
-    13. Try to access (by cd command) the folder (myteam)
+## 12. Log out and log in by another user || 13. Try to access (by cd command) the folder (myteam)
 
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/7ef08ff9-b58c-4700-9868-2abba42a6fed)
+
+##     14. Using the command Line
+Change the permissions of oldpasswd file to give owner read and write permissions and for group write and execute and execute only for the others (using chmod in 2 different ways)
+change your default permissions to be as above.
+``` javascript
+chmod 631 oldpasswd
+chmod u=rw,g=wx,o=x oldpasswd
+```
+to show:
+``` javascript
+ls -l oldpasswd
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/a1c38fa5-9feb-42af-a70a-955ca996a622)
 
