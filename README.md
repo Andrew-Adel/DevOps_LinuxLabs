@@ -102,3 +102,10 @@ use the next to show all files and directories with their permission
 ls -l
 ```
 ![Screenshot from 2024-06-26 17-28-11](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/54298f6c-8561-4a10-9419-c8bceb6ef4e6)
+
+## 
+    12. Log out and log in by another user
+    13. Try to access (by cd command) the folder (myteam)
+
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/7ef08ff9-b58c-4700-9868-2abba42a6fed)
+
