@@ -101,4 +101,4 @@ use the next to show all files and directories with their permission
 ``` javascript
 ls -l
 ```
-![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/1ba9711d-c4ed-49b2-a871-09f0894540a4)
+![Screenshot from 2024-06-26 17-28-11](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/54298f6c-8561-4a10-9419-c8bceb6ef4e6)
