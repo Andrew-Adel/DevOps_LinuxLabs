@@ -1,4 +1,3 @@
-![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/fe262748-f400-45e5-88a3-fdc9f12a6491)# DevOps_Lab1
 lab1 from devops diploma on DEPI
 ## create user
 ```javascript
