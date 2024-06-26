@@ -87,3 +87,18 @@ sudo -i -u AndrewAdel
 * sudo: Runs the command with superuser privileges.
 * -i: runs the shell specified by the target user's default shell as a login shell
 * -u: allow run a command as a specified user
+
+## 11. Create a folder called myteam in your home directory and change its permissions to read only for the owner.
+```javascript
+mkdir ~/myteam
+chmod 400 ~/myteam
+```
+### to show:
+```javascript
+ls -ld ~/myteam
+```
+use the next to show all files and directories with their permission
+``` javascript
+ls -l
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/1ba9711d-c4ed-49b2-a871-09f0894540a4)
