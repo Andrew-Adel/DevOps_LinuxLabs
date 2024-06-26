@@ -120,3 +120,5 @@ ls -l oldpasswd
 ```
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/a1c38fa5-9feb-42af-a70a-955ca996a622)
 
+## 15. What is the maximum permission a file can have, by default when it is just created? And what is that for directory.
+max permission is 777 (read, write, and execute for owner, group, and others)
