@@ -13,5 +13,6 @@ useradd: The command to add a new user.
 * username: The username for the new account.
 * AndrewAdel: user name
 
-![Screenshot from 2024-06-26 15-43-00](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/00d1c7d2-4ae8-4dd7-9a07-2378501a82e8)
+![Screenshot from 2024-06-26 15-43-00](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/382f7729-b82a-432b-8311-309fe2eba6e9)
+
 
