@@ -79,3 +79,11 @@ sudo groupdel badgroup
 * sudo: Runs the command with superuser privileges.
 * groupdel: The command to delete a group.
 * badgroup: The name of the group to be deleted.
+
+## switch between users
+```javascript
+sudo -i -u AndrewAdel
+```
+* sudo: Runs the command with superuser privileges.
+* -i: runs the shell specified by the target user's default shell as a login shell
+* -u: allow run a command as a specified user
