@@ -148,24 +148,113 @@ max permission
 ## 17. What are the minimum permission needed for
 ### a. Copy a directory (permission for source directory and permissions for target parent directory)
 * source direction: must be
-* * readable and excutable at least to be copied and listing its content
+  * readable and excutable at least to be copied and listing its content
   * and its content must be the same (readable and excutable if direction and readable if file)
 
 * target parent direction:
-* * must be excutable to be access it and allow changes
+  * must be excutable to be access it and allow changes
   * must be writable to create new file or direction inside it
  
 ### b. Copy a file (permission for source file and and permission for target parent directory)
 * source file:
-* * readable
+  * readable
  
 * target parent direction
-* * must be excutable to be access it and allow changes
+  * must be excutable to be access it and allow changes
   * must be writable to create new file or direction inside it
 
 ### c. Delete a file
 * source file:
-* * no minimum permission requested for the file to be deleted
+  * no minimum permission requested for the file to be deleted
 
 * parent direction
-* * the parent direction must be writable and executable to delete file inside it 
+  * the parent direction must be writable and executable to delete file inside it
+ 
+### d. Change to a directory
+need the directiory to be executable 
+
+### e. List a directory content
+need the directory to be executable and readable
+
+### f. View a file content (more/cat command)
+the file need to be readable
+
+### g. Modify a file content
+* file:
+  * file must be writable
+
+* parent directory
+  * must be executable
+
+
+## 19. What is the difference between the “x” permission for a file and for a directory?
+### for file
+run file like program or script
+### for direction
+allows you to enter the directory and access its contents.
+
+## 20. Using vi write your CV in the file mycv. Your CV should include your name, age, school, college, experience
+
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/b06e6b95-43a8-4ab2-b406-2cd6727a1851)
+
+## 21. Open mycv file using vi command then: Without using arrows state how to:
+### Show all lines numbers
+```javascript
+:set number // show all lines number
+/Age //Search for word age
+5G //Step to line 5 (assuming that you are in line 1 and file is more than 5 lines).
+dd // Delete the line you are on. 
+```
+
+## 22. List the available shells in your system.
+
+```javascript
+cat /etc/shells
+```
+![Screenshot from 2024-07-03 17-06-16](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/39d06d88-83b2-4a6f-97de-7c173a3b47c3)
+
+## 23. List the environment variables in your current shell.
+```javascript
+env
+// or
+printenv
+```
+
+## 24.List all of the environment variables for the bash shell.
+```javascript
+env | grep BASH_
+```
+
+## 25.What are the commands that list the value of a specific variable?
+```javascript
+echo $Variable
+\\Example:
+echo $SHELL
+```
+
+## 26. Display your current shell name.
+```javascript
+echo $0
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/60d70397-d143-4fa3-acb7-193a24b915fc)
+
+## 27.State the initialization files of: sh, ksh, bash.
+
+## 28. Edit in your profile to display date at login and change your prompt permanently.
+add the following code into ~/.profile file
+```javascript
+# Display date at login
+echo "Today's date: $(date)"
+
+# Customize prompt
+export PS1="\[\e[36m\]\u@\h \[\e[33m\]\w\[\e[0m\] $ "
+```
+save it and execute the file using source:
+```javascript
+source ~/.profile 
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a443784-974f-43fc-93be-b43cefdd1849)
+
+## 29. Execute the following command :
+
+## 30. Create a Bash shell alias named ls for the “ls –l” command
