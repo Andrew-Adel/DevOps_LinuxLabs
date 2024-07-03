@@ -121,4 +121,51 @@ ls -l oldpasswd
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/a1c38fa5-9feb-42af-a70a-955ca996a622)
 
 ## 15. What is the maximum permission a file can have, by default when it is just created? And what is that for directory.
-max permission is 777 (read, write, and execute for owner, group, and others)
+max permission
+#### Direction:
+777 (read, write, and execute for owner, group, and others)
+#### Files
+666 (read and write for owner, group, and others)
+## 16. Change your default permissions to be no permission to everyone then create a directory and a file to verify
+``` javascript
+  umask 777
+  mkdir dirNewMask
+  touch fileNewMask
+  umask
+  umask 002
+  umask
+  mkdir dirResetMask
+  touch fileResetMask
+  ls -ld dirNewMask
+  ls -ld dirResetMask
+  ls -ld fileNewMask
+  ls -ld fileResetMask
+```
+
+![Screenshot from 2024-07-03 15-47-03](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/973d758b-4662-4818-a4dc-426471cc9e0e)
+![Screenshot from 2024-07-03 15-48-56](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/03c3176c-fca2-4ce9-856c-d8e8b8161a1c)
+
+## 17. What are the minimum permission needed for
+### a. Copy a directory (permission for source directory and permissions for target parent directory)
+* source direction: must be
+* * readable and excutable at least to be copied and listing its content
+  * and its content must be the same (readable and excutable if direction and readable if file)
+
+* target parent direction:
+* * must be excutable to be access it and allow changes
+  * must be writable to create new file or direction inside it
+ 
+### b. Copy a file (permission for source file and and permission for target parent directory)
+* source file:
+* * readable
+ 
+* target parent direction
+* * must be excutable to be access it and allow changes
+  * must be writable to create new file or direction inside it
+
+### c. Delete a file
+* source file:
+* * no minimum permission requested for the file to be deleted
+
+* parent direction
+* * the parent direction must be writable and executable to delete file inside it 
