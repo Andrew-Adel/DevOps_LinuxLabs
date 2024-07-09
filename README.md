@@ -307,4 +307,7 @@ export PS2=": "
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/c1ba19d4-bfef-4f1b-abc0-d51c56608b23)
 
 ## 30. Create a Bash shell alias named ls for the “ls –l” command
-
+### add the alias
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/e3a13b30-33a1-4144-8b71-c0635a76c44c)
+### test the alias
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/17465507-5fb0-4f58-b3a9-daaa9fa91e48)
