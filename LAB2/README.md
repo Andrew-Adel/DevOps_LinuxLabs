@@ -29,3 +29,34 @@ who | grep '^a'
 ```
 ## image
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/6a82f9de-ff6c-492f-8f33-578ea1ec1318)
+
+# 4. get the logins name and full names (comment) of logins starts with “g”.
+```javascript
+getent passwd | grep '^g' | cut -d: -f1,5
+```
+* `getent passwd`: Retrieves the user account information from the system database.
+* `grep '^g'`: Filters the output to include only lines where the username starts with "g".
+* `cut -d: -f1,5`: Cuts each line using ":" as the delimiter and selects the first and fifth fields, which correspond to the username and the full name/comment, respectively.
+
+## image
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/2cfed957-8d38-4a2b-b540-35b0d7c28b41)
+
+# 5. Save the output of the last command sorted by their full names in a file.
+```javascript
+getent passwd | grep '^g' | cut -d: -f1,5 > GUsers.list
+```
+## code ScreenShot ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/bb901b45-c590-4375-ad9f-4839246842af)
+## output
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/d013b863-916d-4c28-ab02-d8bc327dd813)
+
+# 6. Write two commands: first: to search for all files on the system that named `.bash_profile`. Second: sorts the output of ls command on `/` recursively, Saving their output and error in 2 different files and sending them to the background.
+## search for all files on the system that named `.bash_profile`
+```javascript
+find . -name ".bash_profile" 2> /dev/null
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/618dbcab-e71b-4016-9a5c-1cfa18f11873)
+## sorts the output of ls command on `/` recursively, Saving their output and error in 2 different files and sending them to the background.
+```javascript
+(ls -R / 1>sorted_ls_output.txt 2>sorted_ls_error.txt &)
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/699d4cae-72f9-4a03-96fa-866a079b8ce5)
