@@ -265,16 +265,15 @@ echo $0
 * Example: /home/user/.kshrc
 
 ####bash (Bourne Again Shell)
+##### Login Shell:
+* .bash_profile, .bash_login, or .profile
+* bash looks for these files in the following order: .bash_profile, .bash_login, and .profile.
+* It executes the first one it finds in the user's home directory ($HOME).
+* Example: `/home/user/.bash_profile`, `/home/user/.bash_login`, or `/home/user/.profile`
 
-    Login Shell:
-        .bash_profile, .bash_login, or .profile
-            bash looks for these files in the following order: .bash_profile, .bash_login, and .profile.
-            It executes the first one it finds in the user's home directory ($HOME).
-            Example: /home/user/.bash_profile, /home/user/.bash_login, or /home/user/.profile
-
-    Non-login Interactive Shell: .bashrc
-        The .bashrc file in the user's home directory ($HOME/.bashrc) is executed when a non-login interactive shell starts.
-        Example: /home/user/.bashrc
+##### Non-login Interactive Shell: .bashrc
+* The `.bashrc` file in the user's home directory ($HOME/.bashrc) is executed when a non-login interactive shell starts.
+* Example: /home/user/.bashrc
 
 ## 28. Edit in your profile to display date at login and change your prompt permanently.
 add the following code into ~/.profile file
