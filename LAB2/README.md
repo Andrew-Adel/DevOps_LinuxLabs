@@ -60,3 +60,20 @@ find . -name ".bash_profile" 2> /dev/null
 (ls -R / 1>sorted_ls_output.txt 2>sorted_ls_error.txt &)
 ```
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/699d4cae-72f9-4a03-96fa-866a079b8ce5)
+
+# 7. Display the number of users who is logged now to the system.
+```javascript
+who | wc -l
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/3df41de0-1ed3-4a11-a904-ea5af2687798)
+
+# 8. Display lines 7 to line 10 of /etc/passwd file
+`sed -n '/[pattern]/p' [file]: Print only lines matching the pattern.`
+```javascript
+sed -n '7,10p' /etc/passwd
+```
+* `sed`: Stream editor for filtering and transforming text.
+* `-n`: Suppresses automatic printing of pattern space.
+* `7,10p`: Specifies the range of lines from 7 to 10 and prints them.
+* `/etc/passwd`: The file to be processed.
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/650d7b51-7856-405b-862c-199d4f1cd89e)
