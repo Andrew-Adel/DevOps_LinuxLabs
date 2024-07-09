@@ -1,6 +1,6 @@
 # DevOps Lab#1
 lab1 from devops diploma on DEPI
-## create user
+## 1. Create a user account with the following attribute
 ```javascript
 sudo useradd -m -c "my name is Andrew Adel" -s /bin/bash -p $(openssl passwd -1 "Andrew") AndrewAdel
 ```
@@ -19,8 +19,13 @@ cat /etc/passwd
 ```
 ![Screenshot from 2024-06-26 15-43-00](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/382f7729-b82a-432b-8311-309fe2eba6e9)
 
+## 2. Create a user account with the following attribute
+```javascript
+sudo useradd -m -c "Bad User" -s /bin/bash -p $(openssl passwd -1 "baduser") baduser
+```
 
-## Create Groups
+
+## 3. reate a supplementary (Secondary) group called pgroup with group ID of 30000 (Create Groups)
 ```javascript
 sudo groupadd -g 30000 pgroup
 ```
@@ -34,9 +39,15 @@ sudo groupadd -g 30000 pgroup
 cat /etc/groups 
 ```
 
+## 4. Create a supplementary group called badgroup
+
+```javascript
+sudo groupadd -g badgroup
+```
+
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/ad2aa332-7b0d-4b88-9073-99b4e8a43481)
 
-## add user to group
+## 5. Add islam user to the pgroup group as a supplementary group
 ```javascript
 sudo usermod -aG pgroup islam
 ```
@@ -48,13 +59,26 @@ id islam
 ```
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/59a6932c-cb64-46a8-9f07-b0dc6a9701f2)
 
-## change password of user
+## 6. Modify the password of islam's account to password
 ```javascript
 sudo passwd islam
 ```
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/0396cf1f-46d8-431d-ba81-f319a9d7f351)
 
-## lock user so cann't login
+## 7. Modify islam's account so the password expires after 30 days
+### set password expire time
+```javascript
+sudo chage -M 30 islam
+```
+### to verify the expire time
+```javascript
+sudo chage -l islam
+```
+### explaination image
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/ea56d747-324e-4c08-bcc7-53d38295899e)
+
+
+## 8. Lock bad user account so he can't log in
 ```javascript
 sudo passwd -l baduser
 ```
@@ -63,7 +87,7 @@ sudo passwd -l baduser
 * -l: The option to lock the user account ||| -u: The option to unlock the user account 
 * baduser: The username of the account to be locked.
 
-##  delete user
+##  9. Delete bad user account
 ```javascript
 sudo userdel -r baduser
 ```
@@ -72,7 +96,7 @@ sudo userdel -r baduser
 * -r: Removes the user's home directory and mail spool.
 * baduser: The username of the account to be deleted.
 
-## group delete
+## 10. Delete the supplementary group called badgroup
 ```javascript
 sudo groupdel badgroup
 ```
