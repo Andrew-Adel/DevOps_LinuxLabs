@@ -264,7 +264,7 @@ echo $0
 * The .kshrc file in the user's home directory ($HOME/.kshrc) is executed when a non-login interactive shell starts.
 * Example: /home/user/.kshrc
 
-####bash (Bourne Again Shell)
+#### bash (Bourne Again Shell)
 ##### Login Shell:
 * .bash_profile, .bash_login, or .profile
 * bash looks for these files in the following order: .bash_profile, .bash_login, and .profile.
