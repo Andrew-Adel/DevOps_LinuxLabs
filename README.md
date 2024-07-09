@@ -239,6 +239,42 @@ echo $0
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/60d70397-d143-4fa3-acb7-193a24b915fc)
 
 ## 27.State the initialization files of: sh, ksh, bash.
+### what is initialization file
+* Initialization files are scripts that are executed automatically when a shell starts up.
+* set environment variables
+* define functions
+* perform other setup tasks
+
+### initialization files:
+#### for sh
+##### Login Shell: .profile
+* This file is located in the user's home directory ($HOME/.profile).
+* It is executed when a login shell starts.
+* Example: /home/user/.profile
+##### Non-login Interactive Shell: .shrc
+* This file is also located in the user's home directory ($HOME/.shrc).
+* It is executed when a non-login interactive shell starts.
+* Example: /home/user/.shrc
+
+#### for ksh
+##### Login Shell: .profile
+* Similar to sh, the .profile file in the user's home directory ($HOME/.profile) is executed when a login shell starts.
+* Example: /home/user/.profile
+##### Non-login Interactive Shell: .kshrc
+* The .kshrc file in the user's home directory ($HOME/.kshrc) is executed when a non-login interactive shell starts.
+* Example: /home/user/.kshrc
+
+####bash (Bourne Again Shell)
+
+    Login Shell:
+        .bash_profile, .bash_login, or .profile
+            bash looks for these files in the following order: .bash_profile, .bash_login, and .profile.
+            It executes the first one it finds in the user's home directory ($HOME).
+            Example: /home/user/.bash_profile, /home/user/.bash_login, or /home/user/.profile
+
+    Non-login Interactive Shell: .bashrc
+        The .bashrc file in the user's home directory ($HOME/.bashrc) is executed when a non-login interactive shell starts.
+        Example: /home/user/.bashrc
 
 ## 28. Edit in your profile to display date at login and change your prompt permanently.
 add the following code into ~/.profile file
@@ -256,5 +292,20 @@ source ~/.profile
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a443784-974f-43fc-93be-b43cefdd1849)
 
 ## 29. Execute the following command :
+### echo \ then press enter
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/64b898c1-1f60-402b-8e02-d1be68071479)
+
+### What is the purpose of \ ?  * escaping special characters 
+* indicating that the command continues on the next line.
+
+### Notice the prompt ”>” what is that? 
+The prompt > that appears is called the PS2 prompt, which indicates that the shell is expecting more input to complete the command.
+
+### and how can you change it from “>” to “:”. (Search PS1, PS2, ...) 
+```javascript
+export PS2=": "
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/c1ba19d4-bfef-4f1b-abc0-d51c56608b23)
 
 ## 30. Create a Bash shell alias named ls for the “ls –l” command
+
