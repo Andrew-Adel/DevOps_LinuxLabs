@@ -325,4 +325,11 @@ $ file /dev/sda
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/08f7f285-5ba8-45d2-8a30-e0baa37d3d69)
 
 
-# 29. 
+# 29. List the inode numbers of /, /etc, /etc/hosts.
+```javascript
+ls -id fileOrDirectory
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/286c0aff-d27f-4b0f-b6cf-6e6a592297b2)
+
+
+# 30.
