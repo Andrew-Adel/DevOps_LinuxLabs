@@ -170,7 +170,7 @@ ps -fp $(pgrep -u $(whoami))
 
 
 # 19. Kill your processes only.
-
 ```
 kill -9 $(pgrep -u $(whoami))
 ```
+*** Don't use it else you know what you do, it will end all the process start by your user ***
