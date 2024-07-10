@@ -1,4 +1,4 @@
-# 1. List the user commands and redirect the output to /tmp/commands.list
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cc31d6b1-459e-43e2-b935-4b4a01a80ab8)# 1. List the user commands and redirect the output to /tmp/commands.list
 ```javascript
 compgen -c > /tmp/commands.list
 ```
@@ -77,3 +77,46 @@ sed -n '7,10p' /etc/passwd
 * `7,10p`: Specifies the range of lines from 7 to 10 and prints them.
 * `/etc/passwd`: The file to be processed.
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/650d7b51-7856-405b-862c-199d4f1cd89e)
+
+# 9. What happens if you execute:
+## `cat filename1 | cat filename2`
+it will get the contant of filename1 and give it to pipeline, the pipeline won't use the previous output, instead, it will get the content of filename2 and print it
+### image
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/b12cf331-8bf1-4b73-908d-c35de170c39a)
+
+## `ls | rm`
+produce an error message because `rm` is not designed to accept its arguments via a pipe
+### image
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/3248aa76-84b2-44cf-8a15-b5cbeab33a0c)
+
+## `ls /etc/passwd | wc -l`
+`ls /etc/passwd` will show the permision and some data about this file
+using `ls /etc/passwd | wc -l`, `wc -l` will count the lines of the output of `ls /etc/passwd`, which is 1 line
+### image
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/ac6ec90e-9d6d-4354-92ea-61057d16634e)
+
+
+# 10. Issue the command sleep 100.
+`sleep 100`
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/711a3c1c-0c74-4e9d-b67d-61762709eca3)
+
+# 11. Stop the last command.
+```javascript
+ps -u $(whoami) | grep sleep
+kill -TSTP 7949
+```
+`ps -u $(whoami) | grep sleep` to get all active process that is sleep
+`kill -TSTP 7949` to stop a process we give the `kill` command the option `-TSTP` and give process id as argument
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/8feab373-fbb3-46f3-aaec-bb940bef67c7)
+
+
+# 12. 
+```javascript
+kill -CONT 8263
+```
+option `CONT` to resume the process after stop it
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cd9b8e4d-7950-4e35-bf8c-90cefdf7197c)
+```javascript
+kill -CONT 8263
+```
+
