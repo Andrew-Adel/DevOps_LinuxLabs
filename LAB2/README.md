@@ -329,7 +329,7 @@ $ file /dev/sda
 ```javascript
 ls -id fileOrDirectory
 ```
-![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/286c0aff-d27f-4b0f-b6cf-6e6a592297b2)
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cdb86ef1-c450-4d7e-8a8f-00bf4c0bccb4)
 
 
 # 30.
