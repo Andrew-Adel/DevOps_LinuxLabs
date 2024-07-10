@@ -1,4 +1,4 @@
-![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cc31d6b1-459e-43e2-b935-4b4a01a80ab8)# 1. List the user commands and redirect the output to /tmp/commands.list
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a779d93-581d-482f-ae8c-600c63a7bac9)![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cc31d6b1-459e-43e2-b935-4b4a01a80ab8)# 1. List the user commands and redirect the output to /tmp/commands.list
 ```javascript
 compgen -c > /tmp/commands.list
 ```
@@ -233,4 +233,13 @@ gunzip Image.png.gz
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/507d9130-11f9-47e4-bbc2-1e152ca9ec24)
 263.0 kB
 
-# 21. 
+# 21. State the differences between compress and gzip commands.
+| Feature                 | `compress`                                      | `gzip`                                        |
+|-------------------------|-------------------------------------------------|-----------------------------------------------|
+| **Compression Algorithm**       | Lempel-Ziv-Welch (LZW)                         | DEFLATE (LZ77 + Huffman coding)               |
+| **File Extension**              | `.Z`                                            | `.gz`                                         |
+| **Compression Efficiency**      | Less efficient, typically larger compressed files | More efficient, typically smaller compressed files |
+| **Decompression Command**       | `uncompress`                                   | `gzip -d` or `gunzip`                         |
+| **Availability**                | May not be installed by default, more common on older Unix systems | Widely available, commonly installed by default on most Unix-like systems |
+| **Compress Command Example**    | `compress file.txt`                          | `gzip file.txt`                               |
+| **Decompress Command Example**  | `uncompress file.txt.Z`                     | `gzip -d file.txt.gz` or `gunzip file.txt.gz` |
