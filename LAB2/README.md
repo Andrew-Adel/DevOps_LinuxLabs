@@ -110,13 +110,47 @@ kill -TSTP 7949
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/8feab373-fbb3-46f3-aaec-bb940bef67c7)
 
 
-# 12. 
+# 12. Resume the last command in the background
 ```javascript
 kill -CONT 8263
 ```
 option `CONT` to resume the process after stop it
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cd9b8e4d-7950-4e35-bf8c-90cefdf7197c)
-```javascript
-kill -CONT 8263
-```
 
+
+# 13. Issue the jobs command and see its output.
+![Screenshot from 2024-07-10 13-48-34](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/b5722d83-f25d-47cf-8187-dcf2c692796a)
+
+
+# 14. Send the sleep command to the foreground and send it again to the background.
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/bc76ce8c-e5ef-41dd-ab83-d61a19a4af52)
+![Screenshot from 2024-07-10 13-48-34](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/320ce3ca-c91f-42fd-9a3b-31984164a380)
+
+
+# 15. Kill the sleep command.
+```javascript
+kill -9 9308
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/539c5e80-c880-4404-a45d-f81e622aa3bd)
+
+
+# 16. Display your processes only
+```javascript
+ps aux | grep "^andrew"
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/6749ba08-19b3-4c1c-bd1f-04325db8335f)
+
+or
+```javascript
+ps -u andrew
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cbb46581-ee3d-472b-bd84-14a1974f2d3f)
+
+
+# 17. Display all processes except yours
+```javascript
+ps aux | grep -v "^andrew"
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/72239eff-7ebf-43bb-a86b-074075cc0c26)
+
+# 18. Use the pgrep command to list your processes only 
