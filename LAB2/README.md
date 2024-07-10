@@ -154,3 +154,23 @@ ps aux | grep -v "^andrew"
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/72239eff-7ebf-43bb-a86b-074075cc0c26)
 
 # 18. Use the pgrep command to list your processes only 
+## show processes ID
+```javascript
+pgrep -u $(whoami)
+```
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/46f7fb89-9926-485c-928b-13174e8e2d25)
+## show processes data 
+```
+ps -fp $(pgrep -u $(whoami))
+```
+* `pgrep -u $(whoami)`: Returns a list of PIDs of processes owned by the current user.
+* `$(...)`: Substitutes the output of the command inside the parentheses into the ps command.
+* `ps -fp <list_of_pids>`: Displays detailed information about the specified PIDs.
+# ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/ace00ba8-d2a5-458c-b544-67dae2611131)
+
+
+# 19. Kill your processes only.
+
+```
+kill -9 $(pgrep -u $(whoami))
+```
