@@ -233,6 +233,7 @@ gunzip Image.png.gz
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/507d9130-11f9-47e4-bbc2-1e152ca9ec24)
 263.0 kB
 
+
 # 21. State the differences between compress and gzip commands.
 | Feature                 | `compress`                                      | `gzip`                                        |
 |-------------------------|-------------------------------------------------|-----------------------------------------------|
@@ -243,3 +244,85 @@ gunzip Image.png.gz
 | **Availability**                | May not be installed by default, more common on older Unix systems | Widely available, commonly installed by default on most Unix-like systems |
 | **Compress Command Example**    | `compress file.txt`                          | `gzip file.txt`                               |
 | **Decompress Command Example**  | `uncompress file.txt.Z`                     | `gzip -d file.txt.gz` or `gunzip file.txt.gz` |
+
+
+# 22. What is the command used to view the content of a compressed file.
+* .zip
+  * unzip -p file.zip
+  * zcat file.zip
+* .gz
+  * zcat file.gz
+* .Z
+  * zcat file.gz
+ 
+`zcat compressedFile` is command that can be used in all types 
+
+
+# 23. Backup /etc directory using tar utility.
+```javascript
+sudo tar -czvf Backup_etc.tar.gz /etc
+```
+* `sudo`: Ensures you have the necessary permissions to read all files in the /etc directory.
+* `tar`: The main command to create the archive.
+* `-c`: Creates a new archive.
+* `-z`: Compresses the archive using gzip.
+* `-v`: Verbosely lists files processed (optional, but useful for seeing the progress).
+* `-f`: Specifies the name of the archive file.
+* `etc_backup.tar.gz`: The name of the archive file being created.
+* `/etc`: The directory to be archived.
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/0cfd605b-ec0a-4da8-89e1-c66a8df0abcd)
+
+
+# 24. Starting from your home directory, find all files that were modified in the last two day.
+```javascript
+find ~ -type f -mtime -2
+```
+* `~`: starting from home directory
+* `-type f`
+* `-mtime`: the maximum specify the modify time to filtering
+* `-2`: max time to be modified is 2 days
+
+
+# 25. Starting from /etc, find files owned by root user.
+```javascript
+find /etc/ -type f -user root
+```
+* `-user root`: all files owned by root
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/d5a81343-cfa6-4289-921b-9229f3a13786)
+
+
+# 26. Find all directories in your home directory.
+```javascript
+find ~ -type d
+```
+* `-type d`: find directories
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/38ca5684-5388-49d8-ace3-5411355b7036)
+
+
+# 27. Write a command to search for all files on the system that, its name is “.profile”.
+```javascript
+sudo find ~ -type f -name ".profile"
+```
+* `-name`: filter by name
+* `.profile`: the name to be search is ".profile"
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/871255af-5bea-4ae7-9408-06dfaeb27443)
+
+
+# 28. Identify the file types of the following: /etc/passwd, /dev/pts/0, /etc, /dev/sda
+```javascript
+$ file /etc/passwd
+/etc/passwd: ASCII text
+$ file /dev/pts/0
+/dev/pts/0: cannot open `/dev/pts/0' (No such file or directory)
+$ file /dev/pts/1
+/dev/pts/1: character special (136/1)
+$ file /etc
+/etc: directory
+$ file /dev/sda
+/dev/sda: block special (8/0)
+```
+`file` command is used to Determines file type.
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/08f7f285-5ba8-45d2-8a30-e0baa37d3d69)
+
+
+# 29. 
