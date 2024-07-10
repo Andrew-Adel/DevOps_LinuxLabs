@@ -197,12 +197,16 @@ sudo apt install ncompress
 ## using `compress`:
 ### compressing and decompressed:
 ```javascript
-compress Image.png
-uncompress compressed.zip
+compress -c filename > compressed_output.Z
+uncompress compressed_output.Z
 ```
+for compress
+* `-c` is use for output the compressed, then put it in compressed_output.Z file
 ### code
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/5ed8ab1c-c112-4666-b449-22af9f07c139)
 ## compressed file
-263.2 kB
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/49bc0c31-cbe2-4d13-b68d-89e6baef406c)
+340.1
 
 ## using `zip`:
 ### compressing and decompressed:
@@ -228,3 +232,5 @@ gunzip Image.png.gz
 ## compressed file
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/507d9130-11f9-47e4-bbc2-1e152ca9ec24)
 263.0 kB
+
+# 21. 
