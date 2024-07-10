@@ -1,4 +1,4 @@
-![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a779d93-581d-482f-ae8c-600c63a7bac9)![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cc31d6b1-459e-43e2-b935-4b4a01a80ab8)# 1. List the user commands and redirect the output to /tmp/commands.list
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/06b61860-18c1-4a8c-875b-1911939a3fe9)![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a779d93-581d-482f-ae8c-600c63a7bac9)![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cc31d6b1-459e-43e2-b935-4b4a01a80ab8)# 1. List the user commands and redirect the output to /tmp/commands.list
 ```javascript
 compgen -c > /tmp/commands.list
 ```
@@ -327,9 +327,60 @@ $ file /dev/sda
 
 # 29. List the inode numbers of /, /etc, /etc/hosts.
 ```javascript
-ls -id fileOrDirectory
+ls -id /
+ls -id /etc
+ls -id /etc/hosts
 ```
 ![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cdb86ef1-c450-4d7e-8a8f-00bf4c0bccb4)
 
 
-# 30.
+# 30. Copy /etc/passwd to your home directory, use the commands diff and cmp, and Edit in the file you copied, and then use these commands again, and check the output.
+## Copy /etc/passwd
+```javascript
+// Copy /etc/passwd
+cp /etc/passwd passwd_copy
+```
+## use the commands diff and cmp (First Time)
+```javascript
+diff passwd_copy /etc/passwd
+cp /etc/passwd passwd_copy
+```
+## Edit in the file you copied
+use nano to edit the file
+```javascript
+nano passwd_copy
+```
+## repeat the diff and cmp again and see the output
+* `diff`: It will show the differences between the original /etc/passwd and the edited ~/passwd_backup.
+* `cmp`: It will indicate where the first difference occurs byte by byte.
+
+## image
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/9d130cdf-4a00-4561-8739-3b90c87859f8)
+
+
+# 31. Create a symbolic link of /etc/passwd in /boot.
+```javascript
+sudo ln -s /etc/passwd /boot/passwd_symbolikLink
+ls -l /boot/passwd_symbolikLink
+``` 
+
+* `sudo`: Use superuser privileges since /boot is usually a system directory.
+* `ln`: Create a symbolic/hard link.
+* `-s`: Choose symbolic link
+`/etc/passwd`: Source file or directory to link.
+`/boot/passwd_symlink`: Target path and name of the symlin
+
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/e72c5821-5f74-4f9a-bde3-14a49aa55ca4)
+
+
+# 32. Create a hard link of /etc/passwd in /boot. Could you? Why?
+```javascript
+sudo ln /etc/passwd /boot/passwd_hardLink
+ls -l /boot/passwd_symbolikLink
+```
+
+it create hardlink for /etc/passwd in /boot
+Despite that, after search, it tell it shouldn't created due to the filesystem structure and security considerations on most Unix-like systems. The /boot directory usually contains bootloader-related files and configurations essential for system startup, and placing files like /etc/passwd there is unconventional and unnecessary.
+
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a256fd3-24e8-4be1-ae4f-c435f8d8fe61)
+![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/430ba642-626f-4889-a52e-d0d12a3a5ab3)
