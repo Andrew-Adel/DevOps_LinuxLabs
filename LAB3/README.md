@@ -173,3 +173,59 @@ chmod +x myls_update.sh
 ![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/d6273f59-9216-4c92-ade2-af157cbc7deb)
 ![Screenshot from 2024-07-11 03-45-31](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/4b8574a4-f6a2-469b-aa73-54ca90c13d31)
 
+
+
+
+## Part 2
+### 1. Write a script called mycase, using the case utility to checks the type of character entered by a user:
+a. Upper Case.
+b. Lower Case.
+c. Number.
+d. Nothing.
+### command and code
+```javascript
+nano mycase.sh
+// inside mycase.sh
+echo "Enter a Character to be checked"
+read char
+
+case $char in
+	[A-Z])
+		echo "'$char' is a Upper Case Character"
+		;;
+	[a-z])
+		echo "'$char' is a Lower Case Character"
+      ;;
+   [0-9])
+      echo "'$char' is a Number"
+      ;;
+	*)
+      echo "'$char' is not Upper Case Character, Lower Case Character, nor number"
+      ;;
+esac
+
+
+// make the file executable
+chmod +x mycase.sh
+```
+### test
+```javascript
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ~/mycase.sh 
+Enter a Character to be checked
+a
+'a' is a Lower Case Character
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ~/mycase.sh 
+Enter a Character to be checked
+A
+'A' is a Upper Case Character
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ~/mycase.sh 
+Enter a Character to be checked
+1
+'1' is a Number
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ~/mycase.sh 
+Enter a Character to be checked
+*
+'*' is not Upper Case Character, Lower Case Character, nor number
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/62ccbd6f-932f-4dae-b74c-2035737b1026)
+
