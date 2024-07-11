@@ -171,4 +171,5 @@ chmod +x myls_update.sh
 ```
 ![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/11636ed1-9587-4037-ba78-9f4ddda863bf)
 ![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/d6273f59-9216-4c92-ade2-af157cbc7deb)
+![Screenshot from 2024-07-11 03-45-31](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/4b8574a4-f6a2-469b-aa73-54ca90c13d31)
 
