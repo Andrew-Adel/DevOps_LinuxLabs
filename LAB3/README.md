@@ -1,4 +1,4 @@
-# Lab3 DevOps Linux
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/1da1deba-66c3-4d1c-bb71-1b5c5c452e01)# Lab3 DevOps Linux
 ## Part 1
 ### 1. Create a script that asks for user name then send a greeting to him.
 #### code
@@ -308,5 +308,169 @@ Enter a string:
 
 Nothing: 
 ```
-
 ![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/bacb2613-27be-4bb4-932f-9ef2a2d20a32)
+
+
+### Write a script called mychmod using for utility to give execute permission to all files and directories in your home directory.
+#### code
+```javascript
+// create mychmod.sh
+nano mychmod
+// write the shell code
+
+dir="$HOME"
+for item in "$dir"/*; do
+	if [ -f "$item" ] || [ -d "$item" ]; then
+		chmod +x "$item"
+		echo "add execute permission for item: $item"
+	fi
+done
+echo "All files and directories in $dir have been given execute permissions."
+
+// add execute permission for mychmod.sh
+chmod +x mychmod.sh
+```
+#### test
+```javascript
+~/mychmod.sh
+```
+![Screenshot from 2024-07-11 12-21-34](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/4288e9f1-ddac-43c0-a349-aca5ec2796c4)
+![Screenshot from 2024-07-11 12-21-34](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/160d5e94-6cbb-476c-ad45-71f7c65ded1f)
+![Screenshot from 2024-07-11 12-21-44](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/35826355-17f7-40c8-81d6-0436918a6005)
+
+### 4. Write a script called mybackup using for utility to create a backup of only files in your home directory.
+#### code
+```javascript
+// create mybackup.sh
+nano mybackup
+// write the shell code
+
+dir="$HOME"
+files=()
+backup_file="$dir/backup_$(date +%Y%m%d).tar.gz"
+for item in "$dir"/*; do
+	if [ -f "$item" ]; then
+		# Add the file path relative to the home directory
+		files+=("${item##*/}")
+	fi
+done
+if [ ${#files[@]} -eq 0 ]; then
+    echo "No files to backup in $home_dir"
+    exit 0
+fi
+tar -czvf "$backup_file" -C "$dir" "${files[@]}"
+echo "Backup of all files in $home_dir completed successfully."
+echo "Backup file created at: $backup_file"
+
+// add execute permission for mychmod.sh
+chmod +x mychmod.sh
+```
+
+* use `##/*` to remove any directory path from file name
+* `-C "$dir"` option changes to the home directory before adding the files `/home/andrew file1 mybackup.sh mycase.sh mycase_string.sh mychmod.sh`
+* `files=()` create array of files' name
+
+#### test
+```javascript
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ~/mybackup.sh 
+file1
+mybackup.sh
+mycase.sh
+mycase_string.sh
+mychmod.sh
+Backup of all files in  completed successfully.
+Backup file created at: /home/andrew/backup_20240711.tar.gz
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ls backup_20240711.tar.gz
+backup_20240711.tar.gz
+andrew@andrew-HP-Laptop-15-da1xxx:~$ ls backup_20240711/
+file1  mybackup.sh  mycase.sh  mycase_string.sh  mychmod.sh
+andrew@andrew-HP-Laptop-15-da1xxx:~$ 
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/3f12d258-bd95-4868-b67a-e2b38a7550df)
+
+### 5. Write a script called mymail using for utility to send a mail to all users in the system.
+Note: write the mail body in a file called mtemplate.
+```
+nano mymail.sh
+// code inside mymail.sh
+# Set the path to the mail template file
+mail_template="mtemplate"
+personalized_template="/tmp/personalized_template"
+
+# Check if the mail template file exists
+if [ ! -f "$mail_template" ]; then
+    echo "Mail template file not found: $mail_template"
+    exit 1
+fi
+
+# Get the list of users
+users=$(cut -d: -f1 /etc/passwd)
+
+# Loop through all users and send the mail
+for user in $users; do
+    # Skip system users (optional)
+    if id -u "$user" >/dev/null 2>&1 && [ "$(id -u "$user")" -ge 1000 ]; then
+        echo "Sending mail to: $user"
+
+        # Personalize the mail template
+        sed "s/{{USERNAME}}/$user/g" "$mail_template" > "$personalized_template"
+
+        # Send the mail
+        mail -s "System Notification" "$user" < "$personalized_template"
+    fi
+done
+
+# Remove the temporary personalized template file
+rm "$personalized_template"
+
+echo "Mail sent to all users."
+```
+
+### 6. 
+
+
+## Part 3
+### 1. Display the lines that contain the word “lp” in /etc/passwd file.
+```javascript
+sed -n '/lp/p' /etc/passwd
+```
+#### test
+```javascript
+andrew@andrew-HP-Laptop-15-da1xxx:~$ sed -n '/lp/p' /etc/passwd
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+cups-pk-helper:x:112:114:user for cups-pk-helper service,,,:/nonexistent:/usr/sbin/nologin
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/0748dd43-6789-4c06-a4f2-1ffa1eea0f1c)
+
+
+### 2. Display /etc/passwd file except the third line.
+```javascript
+sed '3d' /etc/passwd
+```
+#### test
+```javascript
+andrew@andrew-HP-Laptop-15-da1xxx:~$ sed '3d' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+...
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/ea550f4b-49e6-4ea6-883d-7dce32005efa)
+
+### 3. Display /etc/passwd file except the last line.
+```javascript
+sed '$d' /etc/passwd
+```
+
+### 4. Display /etc/passwd file except the lines that contain the word “lp”.
+```javascript
+sed '/lp/d' /etc/passwd
+```
+
+### 5. Substitute all the words that contain “lp” with “mylp” in /etc/passwd file.
+```javascript
+sed 's/\(.*\)lp\(.*\)/\1mylp\2/g' /etc/passwd
+```
