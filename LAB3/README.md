@@ -1,4 +1,4 @@
-![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/1da1deba-66c3-4d1c-bb71-1b5c5c452e01)# Lab3 DevOps Linux
+# Lab3 DevOps Linux
 ## Part 1
 ### 1. Create a script that asks for user name then send a greeting to him.
 #### code
