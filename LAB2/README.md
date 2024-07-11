@@ -1,4 +1,4 @@
-![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/06b61860-18c1-4a8c-875b-1911939a3fe9)![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/4a779d93-581d-482f-ae8c-600c63a7bac9)![image](https://github.com/Andrew-Adel/DevOps_Lab1/assets/60392594/cc31d6b1-459e-43e2-b935-4b4a01a80ab8)# 1. List the user commands and redirect the output to /tmp/commands.list
+# 1. List the user commands and redirect the output to /tmp/commands.list
 ```javascript
 compgen -c > /tmp/commands.list
 ```
