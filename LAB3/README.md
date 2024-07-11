@@ -426,8 +426,22 @@ rm "$personalized_template"
 echo "Mail sent to all users."
 ```
 
-### 6. 
+### 6. Write a script called chkmail to check for new mails every 10 seconds. Note: mails are
+saved in /var/mail/username.
 
+```javascript
+#!/bin/bash
+
+mailLocation = "/var/mail/$(whoami)"
+
+while true; do
+	if [[ -s "$MAILBOX" ]]; then
+        	echo "You have new mail"
+	fi
+	sleep 10
+done
+
+```
 
 ## Part 3
 ### 1. Display the lines that contain the word “lp” in /etc/passwd file.
