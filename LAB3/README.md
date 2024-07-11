@@ -236,8 +236,9 @@ c. Numbers.
 d. Mix.
 e. Nothing.
 ```javascript
-// 
+// create mycase_string.sh
 nano mycase_string
+// write the shell code
 #!/bin/bash
 
 # Initialize flags
@@ -279,6 +280,7 @@ elif ($has_upper || $has_lower || $has_number) && ! ($has_special); then
 else
     echo "Nothing: $input_string"
 fi
+```
 #### test
 ```javascript
 andrew@andrew-HP-Laptop-15-da1xxx:~$ ~/mycase_string.sh
