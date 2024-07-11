@@ -474,3 +474,51 @@ sed '/lp/d' /etc/passwd
 ```javascript
 sed 's/\(.*\)lp\(.*\)/\1mylp\2/g' /etc/passwd
 ```
+## Part 4
+### 1. Print full name (comment) of all users in the system.
+```javascript
+awk -F: '{print $5}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/fe1e7ef2-e215-48f6-9779-92a29a2c77b3)
+
+### 2. Print login, full name (comment) and home directory of all users.( Print each line preceded by a line number)
+```javascript
+awk -F: '{print NR, $1, $5, $6}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/763ae263-b82c-4af0-bd6b-d07afdbeabdd)
+
+### 3. Print login, uid and full name (comment) of those uid is greater than 500
+```javascript
+awk -F: '$3 > 500 {print $1, $3, $5}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/eb202b32-30c0-434a-ae45-81abd225f265)
+
+### 4. Print login, uid and full name (comment) of those uid is exactly 500
+```javascript
+awk -F: '$3 == 500 {print $1, $3, $5}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/3219f004-4a5a-400f-9bea-58dccfded01a)
+
+### 5. Print line from 5 to 15 from /etc/passwd
+```javascript
+awk -F: 'NR >= 5 && NR <= 15 {print $0}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/c90236d4-00ca-4bd0-b5a3-95d49920f29a)
+
+### 6. Change lp to mylp
+```javascript
+awk '{gsub(/lp/, "mylp"); print}' /etc/passwd
+```
+
+### 7. Print all information about greatest uid.
+```javascript
+awk -F: 'BEGIN {max_uid = 0} {if ($3 > max_uid) {max_uid = $3; max_line = $0}} END {print max_line}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/e261b792-53ac-4bfe-af4a-8cf3d4d4a831)
+
+### 8. Get the sum of all accounts id’s.
+```javascript
+awk -F: 'BEGIN {sum=0}{sum+= $3} END {print sum}' /etc/passwd
+```
+![image](https://github.com/Andrew-Adel/DevOps_LinuxLabs/assets/60392594/22d378e1-9349-4641-b4ce-babcef64a7d6)
+
